@@ -1,8 +1,7 @@
+import 'package:avances/models/advance_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-
-import 'models/advance_model.dart';
 
 class AdvanceScreen extends StatefulWidget {
   final List<Advance> advances;
@@ -40,7 +39,6 @@ class _AdvanceScreenState extends State<AdvanceScreen>
             _loadAdvance(advance: widget.advances[_currentIndex]);
           } else {
             // Out of bounds - loop advance
-            // You can also Navigator.of(context).pop() here
             Navigator.of(context).pop();
           }
         });
@@ -120,7 +118,8 @@ class _AdvanceScreenState extends State<AdvanceScreen>
                       horizontal: 1.5,
                       vertical: 10.0,
                     ),
-                    child: UserInfo(), //userinfo
+                    child: UserInfo(
+                        advance: widget.advances[_currentIndex]), //userinfo
                   ),
                 ],
               ),
@@ -152,11 +151,6 @@ class _AdvanceScreenState extends State<AdvanceScreen>
       setState(() {
         if (_currentIndex + 1 < widget.advances.length) {
           _currentIndex += 1;
-          _loadAdvance(advance: widget.advances[_currentIndex]);
-        } else {
-          // Out of bounds - loop advance
-          // You can also Navigator.of(context).pop() here
-          _currentIndex = 0;
           _loadAdvance(advance: widget.advances[_currentIndex]);
         }
       });
@@ -268,9 +262,9 @@ class AnimatedBar extends StatelessWidget {
 }
 
 class UserInfo extends StatelessWidget {
-  const UserInfo({
-    Key key,
-  }) : super(key: key);
+  final advance;
+
+  const UserInfo({Key key, @required this.advance}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -279,13 +273,12 @@ class UserInfo extends StatelessWidget {
         CircleAvatar(
           radius: 20.0,
           backgroundColor: Colors.grey[300],
-          backgroundImage: CachedNetworkImageProvider(
-              'https://img.favpng.com/23/4/11/computer-icons-user-profile-avatar-png-favpng-QsYtjsW73M0aGLb4GbMEyLbc5.jpg'),
+          backgroundImage: CachedNetworkImageProvider(advance.image),
         ),
         const SizedBox(width: 10.0),
         Expanded(
           child: Text(
-            'Carlos',
+            advance.name,
             style: const TextStyle(
               color: Colors.white,
               fontSize: 18.0,

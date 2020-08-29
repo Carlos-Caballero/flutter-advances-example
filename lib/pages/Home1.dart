@@ -1,8 +1,8 @@
-import 'package:avances/AdvancesScreen.dart';
+import 'package:avances/pages/AdvancesScreen.dart';
 import 'package:video_player/video_player.dart';
 import 'package:flutter/material.dart';
 
-import 'data.dart';
+import '../data/data.dart';
 
 class Home extends StatefulWidget {
   @override

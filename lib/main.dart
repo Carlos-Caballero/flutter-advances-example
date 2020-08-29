@@ -1,4 +1,5 @@
-import 'package:avances/Home.dart';
+import 'package:avances/pages/Home.dart';
+import 'package:avances/pages/Home1.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -9,7 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Material App',
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: HomeScreen(),
     );
   }
 }
