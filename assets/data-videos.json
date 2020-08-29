@@ -1,0 +1,20 @@
+{
+    "nombre": "Advances",
+    "info-vid": [
+        {
+            "ruta": "assets/vid1.mp4",
+            "nombre": "Test 1",
+            "descripcion": "testeando app codigo facilito flutter v1"
+        },
+        {
+            "ruta": "assets/vid2.mp4",
+            "nombre": "Test 2",
+            "descripcion": "testeando app codigo facilito flutter v2"
+        },
+        {
+            "ruta": "assets/vid3.mp4",
+            "nombre": "Odie <3",
+            "descripcion": "Odie jugando con una pelota"
+        }
+    ]
+}
