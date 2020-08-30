@@ -3,7 +3,7 @@ import '../models/advance_model.dart';
 final List<Advance> advances = [
   Advance(
     url:
-        'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
+        'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
     media: MediaType.video,
     duration: const Duration(seconds: 0),
     posicion: 1,
@@ -12,7 +12,8 @@ final List<Advance> advances = [
     name: 'Google video 1',
   ),
   Advance(
-    url: 'https://media.giphy.com/media/moyzrwjUIkdNe/giphy.gif',
+    url:
+        'https://blog.foto24.com/wp-content/uploads/2019/02/6-fotografia-de-Alejandro-Rodriguez-683x1024.jpg',
     media: MediaType.image,
     duration: const Duration(seconds: 7),
     posicion: 2,

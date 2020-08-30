@@ -58,8 +58,10 @@ class _HomeState extends State<Home> {
                 onPressed: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            AdvanceScreen(advances: advances))))
+                        builder: (context) => AdvanceScreen(
+                              advances: advances,
+                              currentAdvance: 0,
+                            ))))
           ],
         ),
       ),

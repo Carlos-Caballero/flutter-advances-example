@@ -5,8 +5,9 @@ import 'package:video_player/video_player.dart';
 
 class AdvanceScreen extends StatefulWidget {
   final List<Advance> advances;
+  final int currentAdvance;
 
-  const AdvanceScreen({@required this.advances});
+  const AdvanceScreen({@required this.advances, @required this.currentAdvance});
 
   @override
   _AdvanceScreenState createState() => _AdvanceScreenState();
@@ -24,8 +25,9 @@ class _AdvanceScreenState extends State<AdvanceScreen>
     super.initState();
     _pageController = PageController();
     _animController = AnimationController(vsync: this);
+    _currentIndex = widget.currentAdvance;
 
-    final Advance firstAdvance = widget.advances.first;
+    final Advance firstAdvance = widget.advances[_currentIndex];
     _loadAdvance(advance: firstAdvance, animateToPage: false);
 
     _animController.addStatusListener((status) {
@@ -118,7 +120,7 @@ class _AdvanceScreenState extends State<AdvanceScreen>
                       horizontal: 1.5,
                       vertical: 10.0,
                     ),
-                    child: UserInfo(
+                    child: AdvInfo(
                         advance: widget.advances[_currentIndex]), //userinfo
                   ),
                 ],
@@ -139,7 +141,6 @@ class _AdvanceScreenState extends State<AdvanceScreen>
       _videoController.pause();
     }
 
-    if (_currentIndex + 1 >= widget.advances.length) Navigator.pop(context);
     if (dx < screenWidth / 3) {
       setState(() {
         if (_currentIndex - 1 >= 0) {
@@ -152,7 +153,8 @@ class _AdvanceScreenState extends State<AdvanceScreen>
         if (_currentIndex + 1 < widget.advances.length) {
           _currentIndex += 1;
           _loadAdvance(advance: widget.advances[_currentIndex]);
-        }
+        } else if (_currentIndex + 1 >= widget.advances.length)
+          Navigator.pop(context);
       });
     } else {
       if (advance.media == MediaType.video) {
@@ -261,10 +263,10 @@ class AnimatedBar extends StatelessWidget {
   }
 }
 
-class UserInfo extends StatelessWidget {
+class AdvInfo extends StatelessWidget {
   final advance;
 
-  const UserInfo({Key key, @required this.advance}) : super(key: key);
+  const AdvInfo({Key key, @required this.advance}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

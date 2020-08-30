@@ -1,3 +1,4 @@
+import 'package:avances/pages/AdvancesScreen.dart';
 import 'package:avances/pages/Home.dart';
 import 'package:avances/pages/Home1.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      debugShowCheckedModeBanner: false,
       home: HomeScreen(),
     );
   }
