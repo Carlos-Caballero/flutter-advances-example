@@ -126,6 +126,45 @@ class _AdvanceScreenState extends State<AdvanceScreen>
                 ],
               ),
             ),
+            Positioned(
+              top: 720.0,
+              left: 45.0,
+              right: 45.0,
+              child: Row(
+                children: <Widget>[
+                  Icon(
+                    Icons.add,
+                    size: 55,
+                    color: Colors.red,
+                  ),
+                  SizedBox(
+                    width: 55.0,
+                  ),
+                  Container(
+                    alignment: Alignment.center,
+                    height: 40.0,
+                    width: 80.0,
+                    color: Colors.red,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.play_circle_outline),
+                        SizedBox(
+                          width: 5.0,
+                        ),
+                        Text('Play'),
+                      ],
+                    ),
+                  ),
+                  Expanded(child: SizedBox()),
+                  Icon(
+                    Icons.info,
+                    size: 55,
+                    color: Colors.red,
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
